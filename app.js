@@ -1,19 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-
-
 //const { errors } = require('celebrate');
-
-
 const cors = require('cors');
-
-
 /*const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
-const { requestLogger, errorLogger } = require('./middlewares/Logger.js');
-const NotFound = require('./errors/notFound.js');*/
-
+const { requestLogger, errorLogger } = require('./middlewares/Logger.js');*/
+const NotFound = require('./errors/notFound.js');
 
 const { PORT = 3000 } = process.env;
 
@@ -33,9 +26,8 @@ app.use(cors());
 
 app.use('/main', (req, res) => res.send('Hello, world!'));
 
-app.use((req, res/*, next*/) => {
-  res.send('Запрашиваемый ресурс не найден');
-  //next(new NotFound('Запрашиваемый ресурс не найден'));
+app.use((req, res, next) => {
+  next(new NotFound('Запрашиваемый ресурс не найден'));
 });
 
 app.use((err, req, res, next) => {
