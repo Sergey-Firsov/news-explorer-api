@@ -1,10 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-//const { errors } = require('celebrate');
+const { errors } = require('celebrate');
 const cors = require('cors');
-/*const usersRouter = require('./routes/users');
-const cardsRouter = require('./routes/cards');*/
+const usersRouter = require('./routes/users.js');
+//const articlesRouter = require('./routes/articles.js');
 const { requestLogger, errorLogger } = require('./middlewares/logger.js');
 const NotFound = require('./errors/notFound.js');
 
@@ -26,9 +26,13 @@ app.use(cors());
 
 app.use(requestLogger);
 
-app.use('/main', (req, res) => res.send('Hello, world!'));
+app.use('/', usersRouter);
+
+//app.use('/', articlesRouter);
 
 app.use(errorLogger);
+
+app.use(errors());
 
 app.use((req, res, next) => {
   next(new NotFound('Запрашиваемый ресурс не найден'));
