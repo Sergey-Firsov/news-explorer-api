@@ -3,8 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cors = require('cors');
-const usersRouter = require('./routes/users.js');
-//const articlesRouter = require('./routes/articles.js');
+const router = require('./routes/index.js');
 const { requestLogger, errorLogger } = require('./middlewares/logger.js');
 const NotFound = require('./errors/notFound.js');
 
@@ -26,9 +25,7 @@ app.use(cors());
 
 app.use(requestLogger);
 
-app.use('/', usersRouter);
-
-//app.use('/', articlesRouter);
+app.use(router);
 
 app.use(errorLogger);
 
