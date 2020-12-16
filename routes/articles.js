@@ -1,11 +1,13 @@
 const router = require('express').Router();
-//const { createUser, login, getUserData } = require('../controllers/users.js');
-//const auth = require('../middlewares/auth.js');
+const { createArticle, deleteArticle, getArticles } = require('../controllers/articles.js');
+const auth = require('../middlewares/auth.js');
 
-router.get('/articles', createUser);
+router.use(auth);
 
-router.post('/articles', login);
+router.get('/articles', getArticles);
 
-router.delete('/articles/articleId', getUserData);
+router.post('/articles', createArticle);
+
+router.delete('/articles/:articleId', deleteArticle);
 
 module.exports = router;
