@@ -1,2 +1,13 @@
-# news-explorer-api
-api for the NewsExplorer project
+# Дипломная работа: Сервис NewsExplorer
+
+### Обзор
+
+NewsExplorer, это сервис в котором можно найти новости по запросу и сохранить в личном кабинете.
+
+Ссылка на проект: #.
+
+Сервер: https://api.myplace.students.nomoredomains.work/
+
+IP адрес: 130.193.56.84
+
+_Автор работы Сергей Фирсов_
