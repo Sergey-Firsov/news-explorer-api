@@ -21,10 +21,10 @@ const deleteArticle = (req, res, next) => {
       if (JSON.stringify(article.owner) !== JSON.stringify(req.user._id)) {
         throw new Forbidden('Вы не можете удалять чужие карточки');
       }
+      article.remove();
 
-      return Article.findByIdAndRemove(req.params.articleId);
+      res.send(article);
     })
-    .then((deletingArticle) => res.send(deletingArticle))
     .catch(() => next(new NotFound('Нет карточки с таким id')));
 };
 
