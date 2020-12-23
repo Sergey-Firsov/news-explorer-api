@@ -24,13 +24,13 @@ const deleteArticle = (req, res, next) => {
 
       return Article.findByIdAndRemove(req.params.articleId);
     })
-    .then((deletingArticle) => res.status(200).send(deletingArticle))
+    .then((deletingArticle) => res.send(deletingArticle))
     .catch(() => next(new NotFound('Нет карточки с таким id')));
 };
 
 const getArticles = (req, res, next) => {
   Article.find({})
-    .then((articles) => res.status(200).send(articles))
+    .then((articles) => res.send(articles))
     .catch(() => next(new NotFound('Произошла ошибка')));
 };
 

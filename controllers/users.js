@@ -32,14 +32,14 @@ const login = (req, res, next) => {
         { expiresIn: '14d' },
       );
 
-      res.status(200).send({ token });
+      res.send({ token });
     })
     .catch(next);
 };
 
 const getUserData = (req, res, next) => {
   User.findById(req.user._id)
-    .then((user) => res.status(200).send({ email: user.email, name: user.name }))
+    .then((user) => res.send({ email: user.email, name: user.name }))
     .catch(() => next(new NotFound('Нет пользователя с таким id')));
 };
 
