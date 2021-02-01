@@ -4,10 +4,12 @@
 
 NewsExplorer, это сервис в котором можно найти новости по запросу и сохранить в личном кабинете.
 
-Ссылка на проект: #.
+Back-end проекта NewsExplorer, реализован на Node.js(express.js). База данных MongoDB.
 
-Сервер: https://api.myplace.students.nomoredomains.work/
+Ссылка на проект: https://news-explorer.portfolio-firsov.ru
 
-IP адрес: 130.193.56.84
+Сервер: https://api.news-explorer.portfolio-firsov.ru
+
+IP адрес: 84.201.151.26
 
 _Автор работы Сергей Фирсов_
